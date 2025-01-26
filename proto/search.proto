@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service SearchService {
+  rpc GetQuestionsByType (TypeRequest) returns (QuestionsResponse);
+  rpc GetQuestionById (IdRequest) returns (QuestionResponse);
+}
+
+message TypeRequest {
+  string type = 1;
+}
+
+message IdRequest {
+  string id = 1;
+}
+
+message QuestionResponse {
+  string id = 1;
+  string title = 2;
+  string type = 3;
+  string solution = 4;
+}
+
+message QuestionsResponse {
+  repeated QuestionResponse questions = 1;
+}
